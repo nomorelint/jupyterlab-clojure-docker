@@ -1,0 +1,987 @@
+#1 [internal] load build definition from Dockerfile
+#1 sha256:df5fd6e6fda705c1e12fed2a083456246d13b164af6fe90f557a01b9094a40a9
+#1 transferring dockerfile: 2.16kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:c555479804ec3ae4205f8d760255cb6aeae6e396ae40594a2b6aa1d606e8e468
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:22.04
+#3 sha256:c98673cf9ef937b1780d76523bbd6cd77884d860bede4bf0d006ae7d8201e8a5
+#3 DONE 0.0s
+
+#4 [ 1/15] FROM docker.io/library/ubuntu:22.04
+#4 sha256:531773a4172c14394035965ba9904dbac39e486e1c25667b3c1d57071c2f6a8c
+#4 DONE 0.0s
+
+#6 [ 3/15] RUN curl         -o jdk-19_linux-x64_bin.deb         https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.deb     && apt-get -yq install         ./jdk-19_linux-x64_bin.deb     && update-alternatives --install         /usr/bin/java java         /usr/lib/jvm/jdk-19/bin/java         1919
+#6 sha256:f235c86525802cd23f2ce8157fde2eaf0b32451a4b9fe16a2cf98d3e5eee1e14
+#6 CACHED
+
+#5 [ 2/15] RUN rm -f /etc/apt/apt.conf.d/docker-clean     && apt update     && apt install -yq         python3         python3-pip         python-dev-is-python3         build-essential         curl         git-core         imagemagick         locales
+#5 sha256:06a74eb0115552b28bf168964a2a179144880689de45dcc475945c7f4725ecf6
+#5 CACHED
+
+#7 [ 4/15] RUN curl         -o /usr/local/bin/lein         https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein     && chmod +x /usr/local/bin/lein     && lein self-install
+#7 sha256:39253a75876f0ad819ec46b1dd66ba8032e78b4f30b726b25d4e5b686f3dab7f
+#7 CACHED
+
+#8 [internal] load build context
+#8 sha256:581a72f74321d903125ec9ae5d9d590e22d5189e2ab83723d0c9150518d01e3f
+#8 transferring context: 112B done
+#8 DONE 0.0s
+
+#9 [ 5/15] COPY requirements.txt .
+#9 sha256:4500788976b42c622d23d95debe203156168e542db3057356e6cf898cbea1958
+#9 DONE 0.0s
+
+#10 [ 6/15] RUN pip install -r requirements.txt
+#10 sha256:a25f68020a800bd90eb91671a1f570452e0567df19171fc52e9b16b56f6a9bfc
+#10 2.307 Collecting jupyterlab
+#10 2.686   Downloading jupyterlab-3.6.1-py3-none-any.whl (8.9 MB)
+#10 8.286      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.9/8.9 MB 1.6 MB/s eta 0:00:00
+#10 8.702 Collecting matplotlib
+#10 8.772   Downloading matplotlib-3.6.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.8 MB)
+#10 21.20      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.8/11.8 MB 1.1 MB/s eta 0:00:00
+#10 21.80 Collecting numpy
+#10 21.87   Downloading numpy-1.24.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+#10 42.29      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.3/17.3 MB 708.9 kB/s eta 0:00:00
+#10 42.76 Collecting pandas
+#10 42.83   Downloading pandas-1.5.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.1 MB)
+#10 53.23      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.1/12.1 MB 1.1 MB/s eta 0:00:00
+#10 53.43 Collecting tornado>=6.1.0
+#10 53.50   Downloading tornado-6.2-cp37-abi3-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (423 kB)
+#10 53.90      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 424.0/424.0 KB 1.1 MB/s eta 0:00:00
+#10 54.00 Collecting tomli
+#10 54.07   Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+#10 54.19 Collecting nbclassic
+#10 54.27   Downloading nbclassic-0.5.1-py3-none-any.whl (10.0 MB)
+#10 64.28      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 994.9 kB/s eta 0:00:00
+#10 64.46 Collecting jupyterlab-server~=2.19
+#10 64.54   Downloading jupyterlab_server-2.19.0-py3-none-any.whl (56 kB)
+#10 64.58      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.4/56.4 KB 1.3 MB/s eta 0:00:00
+#10 64.75 Collecting jupyter-server<3,>=1.16.0
+#10 64.82   Downloading jupyter_server-2.2.1-py3-none-any.whl (365 kB)
+#10 65.12      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 365.3/365.3 KB 1.2 MB/s eta 0:00:00
+#10 65.23 Collecting jupyter-server-ydoc<0.7.0,>=0.6.0
+#10 65.32   Downloading jupyter_server_ydoc-0.6.1-py3-none-any.whl (11 kB)
+#10 65.48 Collecting notebook<7
+#10 65.56   Downloading notebook-6.5.2-py3-none-any.whl (439 kB)
+#10 65.90      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 439.1/439.1 KB 1.3 MB/s eta 0:00:00
+#10 66.02 Collecting jupyter-core
+#10 66.09   Downloading jupyter_core-5.2.0-py3-none-any.whl (94 kB)
+#10 66.17      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.3/94.3 KB 1.2 MB/s eta 0:00:00
+#10 66.28 Collecting jinja2>=2.1
+#10 66.35   Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+#10 66.46      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 KB 1.3 MB/s eta 0:00:00
+#10 66.63 Collecting ipython
+#10 66.70   Downloading ipython-8.9.0-py3-none-any.whl (783 kB)
+#10 67.49      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 783.1/783.1 KB 996.4 kB/s eta 0:00:00
+#10 67.60 Collecting jupyter-ydoc~=0.2.2
+#10 67.66   Downloading jupyter_ydoc-0.2.2-py3-none-any.whl (5.6 kB)
+#10 67.79 Collecting packaging
+#10 67.86   Downloading packaging-23.0-py3-none-any.whl (42 kB)
+#10 67.91      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.7/42.7 KB 985.6 kB/s eta 0:00:00
+#10 68.17 Collecting fonttools>=4.22.0
+#10 68.25   Downloading fonttools-4.38.0-py3-none-any.whl (965 kB)
+#10 69.27      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 965.4/965.4 KB 943.9 kB/s eta 0:00:00
+#10 69.40 Collecting python-dateutil>=2.7
+#10 69.46   Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+#10 69.80      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 247.7/247.7 KB 732.5 kB/s eta 0:00:00
+#10 70.01 Collecting kiwisolver>=1.0.1
+#10 70.08   Downloading kiwisolver-1.4.4-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (1.6 MB)
+#10 71.69      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 1.0 MB/s eta 0:00:00
+#10 71.92 Collecting contourpy>=1.0.1
+#10 71.99   Downloading contourpy-1.0.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (300 kB)
+#10 72.31      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 300.3/300.3 KB 934.3 kB/s eta 0:00:00
+#10 72.45 Collecting pyparsing>=2.2.1
+#10 72.52   Downloading pyparsing-3.0.9-py3-none-any.whl (98 kB)
+#10 72.64      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.3/98.3 KB 867.1 kB/s eta 0:00:00
+#10 73.27 Collecting pillow>=6.2.0
+#10 73.35   Downloading Pillow-9.4.0-cp310-cp310-manylinux_2_28_x86_64.whl (3.4 MB)
+#10 76.56      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 1.0 MB/s eta 0:00:00
+#10 76.66 Collecting cycler>=0.10
+#10 76.73   Downloading cycler-0.11.0-py3-none-any.whl (6.4 kB)
+#10 76.97 Collecting pytz>=2020.1
+#10 77.03   Downloading pytz-2022.7.1-py2.py3-none-any.whl (499 kB)
+#10 78.12      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 499.4/499.4 KB 461.9 kB/s eta 0:00:00
+#10 78.38 Collecting MarkupSafe>=2.0
+#10 78.45   Downloading MarkupSafe-2.1.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+#10 78.71 Collecting jupyter-client>=7.4.4
+#10 78.79   Downloading jupyter_client-8.0.2-py3-none-any.whl (103 kB)
+#10 79.09      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.3/103.3 KB 346.0 kB/s eta 0:00:00
+#10 79.19 Collecting jupyter-server-terminals
+#10 79.26   Downloading jupyter_server_terminals-0.4.4-py3-none-any.whl (13 kB)
+#10 79.41 Collecting prometheus-client
+#10 79.48   Downloading prometheus_client-0.16.0-py3-none-any.whl (122 kB)
+#10 79.81      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 122.5/122.5 KB 383.5 kB/s eta 0:00:00
+#10 79.93 Collecting nbformat>=5.3.0
+#10 80.00   Downloading nbformat-5.7.3-py3-none-any.whl (78 kB)
+#10 80.18      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.1/78.1 KB 446.4 kB/s eta 0:00:00
+#10 80.74 Collecting pyzmq>=24
+#10 80.82   Downloading pyzmq-25.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (1.1 MB)
+#10 82.59      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 599.2 kB/s eta 0:00:00
+#10 82.69 Collecting send2trash
+#10 82.76   Downloading Send2Trash-1.8.0-py3-none-any.whl (18 kB)
+#10 82.90 Collecting terminado>=0.8.3
+#10 82.97   Downloading terminado-0.17.1-py3-none-any.whl (17 kB)
+#10 83.13 Collecting nbconvert>=6.4.4
+#10 83.20   Downloading nbconvert-7.2.9-py3-none-any.whl (274 kB)
+#10 83.55      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 274.9/274.9 KB 785.4 kB/s eta 0:00:00
+#10 83.67 Collecting traitlets>=5.6.0
+#10 83.74   Downloading traitlets-5.9.0-py3-none-any.whl (117 kB)
+#10 83.89      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.4/117.4 KB 791.4 kB/s eta 0:00:00
+#10 84.01 Collecting anyio>=3.1.0
+#10 84.07   Downloading anyio-3.6.2-py3-none-any.whl (80 kB)
+#10 84.17      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.6/80.6 KB 863.8 kB/s eta 0:00:00
+#10 84.31 Collecting argon2-cffi
+#10 84.38   Downloading argon2_cffi-21.3.0-py3-none-any.whl (14 kB)
+#10 84.51 Collecting websocket-client
+#10 84.57   Downloading websocket_client-1.5.1-py3-none-any.whl (55 kB)
+#10 84.65      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.9/55.9 KB 773.7 kB/s eta 0:00:00
+#10 84.76 Collecting jupyter-events>=0.4.0
+#10 84.84   Downloading jupyter_events-0.6.3-py3-none-any.whl (18 kB)
+#10 84.98 Collecting platformdirs>=2.5
+#10 85.05   Downloading platformdirs-3.0.0-py3-none-any.whl (14 kB)
+#10 85.19 Collecting jupyter-server-fileid<1,>=0.6.0
+#10 85.26   Downloading jupyter_server_fileid-0.6.0-py3-none-any.whl (15 kB)
+#10 85.40 Collecting ypy-websocket<0.9.0,>=0.8.2
+#10 85.47   Downloading ypy_websocket-0.8.2-py3-none-any.whl (10 kB)
+#10 85.67 Collecting y-py<0.6.0,>=0.5.3
+#10 85.74   Downloading y_py-0.5.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
+#10 87.39      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 971.6 kB/s eta 0:00:00
+#10 87.56 Collecting requests>=2.28
+#10 87.63   Downloading requests-2.28.2-py3-none-any.whl (62 kB)
+#10 87.68      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 KB 1.3 MB/s eta 0:00:00
+#10 87.80 Collecting babel>=2.10
+#10 87.87   Downloading Babel-2.11.0-py3-none-any.whl (9.5 MB)
+#10 97.45      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.5/9.5 MB 992.3 kB/s eta 0:00:00
+#10 97.60 Collecting jsonschema>=4.17.3
+#10 97.67   Downloading jsonschema-4.17.3-py3-none-any.whl (90 kB)
+#10 97.76      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.4/90.4 KB 937.3 kB/s eta 0:00:00
+#10 97.87 Collecting json5>=0.9.0
+#10 97.94   Downloading json5-0.9.11-py2.py3-none-any.whl (19 kB)
+#10 98.10 Collecting nest-asyncio>=1.5
+#10 98.16   Downloading nest_asyncio-1.5.6-py3-none-any.whl (5.2 kB)
+#10 98.33 Collecting ipykernel
+#10 98.39   Downloading ipykernel-6.21.1-py3-none-any.whl (149 kB)
+#10 98.55      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 149.8/149.8 KB 1.0 MB/s eta 0:00:00
+#10 98.66 Collecting ipython-genutils
+#10 98.73   Downloading ipython_genutils-0.2.0-py2.py3-none-any.whl (26 kB)
+#10 98.91 Collecting notebook-shim>=0.1.0
+#10 98.98   Downloading notebook_shim-0.2.2-py3-none-any.whl (13 kB)
+#10 99.14 Collecting six>=1.5
+#10 99.21   Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+#10 99.43 Collecting pexpect>4.3
+#10 99.49   Downloading pexpect-4.8.0-py2.py3-none-any.whl (59 kB)
+#10 99.55      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.0/59.0 KB 1.1 MB/s eta 0:00:00
+#10 99.70 Collecting prompt-toolkit<3.1.0,>=3.0.30
+#10 99.77   Downloading prompt_toolkit-3.0.36-py3-none-any.whl (386 kB)
+#10 100.1      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 386.4/386.4 KB 1.0 MB/s eta 0:00:00
+#10 100.2 Collecting pickleshare
+#10 100.3   Downloading pickleshare-0.7.5-py2.py3-none-any.whl (6.9 kB)
+#10 100.5 Collecting pygments>=2.4.0
+#10 100.5   Downloading Pygments-2.14.0-py3-none-any.whl (1.1 MB)
+#10 102.0      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 752.0 kB/s eta 0:00:00
+#10 102.1 Collecting jedi>=0.16
+#10 102.2   Downloading jedi-0.18.2-py2.py3-none-any.whl (1.6 MB)
+#10 104.7      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 641.8 kB/s eta 0:00:00
+#10 104.8 Collecting stack-data
+#10 104.9   Downloading stack_data-0.6.2-py3-none-any.whl (24 kB)
+#10 105.0 Collecting backcall
+#10 105.0   Downloading backcall-0.2.0-py2.py3-none-any.whl (11 kB)
+#10 105.2 Collecting matplotlib-inline
+#10 105.2   Downloading matplotlib_inline-0.1.6-py3-none-any.whl (9.4 kB)
+#10 105.3 Collecting decorator
+#10 105.4   Downloading decorator-5.1.1-py3-none-any.whl (9.1 kB)
+#10 105.6 Collecting idna>=2.8
+#10 105.6   Downloading idna-3.4-py3-none-any.whl (61 kB)
+#10 105.7      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 KB 688.6 kB/s eta 0:00:00
+#10 105.8 Collecting sniffio>=1.1
+#10 105.9   Downloading sniffio-1.3.0-py3-none-any.whl (10 kB)
+#10 106.0 Collecting parso<0.9.0,>=0.8.0
+#10 106.1   Downloading parso-0.8.3-py2.py3-none-any.whl (100 kB)
+#10 106.3      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.8/100.8 KB 688.0 kB/s eta 0:00:00
+#10 106.4 Collecting attrs>=17.4.0
+#10 106.5   Downloading attrs-22.2.0-py3-none-any.whl (60 kB)
+#10 106.5      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.0/60.0 KB 702.0 kB/s eta 0:00:00
+#10 106.7 Collecting pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0
+#10 106.8   Downloading pyrsistent-0.19.3-py3-none-any.whl (57 kB)
+#10 106.8      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.5/57.5 KB 703.8 kB/s eta 0:00:00
+#10 107.0 Collecting rfc3986-validator>=0.1.1
+#10 107.1   Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl (4.2 kB)
+#10 107.2 Collecting python-json-logger>=2.0.4
+#10 107.2   Downloading python_json_logger-2.0.4-py3-none-any.whl (7.8 kB)
+#10 107.3 Collecting rfc3339-validator
+#10 107.4   Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+#10 107.6 Collecting pyyaml>=5.3
+#10 107.7   Downloading PyYAML-6.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (682 kB)
+#10 108.5      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 682.2/682.2 KB 780.8 kB/s eta 0:00:00
+#10 108.6 Collecting jupyter-events>=0.4.0
+#10 108.6   Downloading jupyter_events-0.5.0-py3-none-any.whl (17 kB)
+#10 108.8 Collecting jupyterlab-pygments
+#10 108.9   Downloading jupyterlab_pygments-0.2.2-py2.py3-none-any.whl (21 kB)
+#10 109.0 Collecting nbclient>=0.5.0
+#10 109.1   Downloading nbclient-0.7.2-py3-none-any.whl (71 kB)
+#10 109.2      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.0/72.0 KB 820.6 kB/s eta 0:00:00
+#10 109.3 Collecting pandocfilters>=1.4.1
+#10 109.4   Downloading pandocfilters-1.5.0-py2.py3-none-any.whl (8.7 kB)
+#10 109.5 Collecting mistune<3,>=2.0.3
+#10 109.6   Downloading mistune-2.0.4-py2.py3-none-any.whl (24 kB)
+#10 109.7 Collecting beautifulsoup4
+#10 109.8   Downloading beautifulsoup4-4.11.2-py3-none-any.whl (129 kB)
+#10 109.9      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.4/129.4 KB 868.7 kB/s eta 0:00:00
+#10 110.0 Collecting tinycss2
+#10 110.1   Downloading tinycss2-1.2.1-py3-none-any.whl (21 kB)
+#10 110.2 Collecting defusedxml
+#10 110.3   Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+#10 110.4 Collecting bleach
+#10 110.5   Downloading bleach-6.0.0-py3-none-any.whl (162 kB)
+#10 110.7      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162.5/162.5 KB 889.0 kB/s eta 0:00:00
+#10 110.9 Collecting fastjsonschema
+#10 110.9   Downloading fastjsonschema-2.16.2-py3-none-any.whl (22 kB)
+#10 111.1 Collecting ptyprocess>=0.5
+#10 111.2   Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+#10 111.3 Collecting wcwidth
+#10 111.4   Downloading wcwidth-0.2.6-py2.py3-none-any.whl (29 kB)
+#10 111.6 Collecting charset-normalizer<4,>=2
+#10 111.7   Downloading charset_normalizer-3.0.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (198 kB)
+#10 111.9      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.8/198.8 KB 912.9 kB/s eta 0:00:00
+#10 112.1 Collecting urllib3<1.27,>=1.21.1
+#10 112.1   Downloading urllib3-1.26.14-py2.py3-none-any.whl (140 kB)
+#10 112.3      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.6/140.6 KB 914.7 kB/s eta 0:00:00
+#10 112.4 Collecting certifi>=2017.4.17
+#10 112.5   Downloading certifi-2022.12.7-py3-none-any.whl (155 kB)
+#10 112.6      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.3/155.3 KB 982.3 kB/s eta 0:00:00
+#10 112.8 Collecting aiofiles<23,>=22.1.0
+#10 112.9   Downloading aiofiles-22.1.0-py3-none-any.whl (14 kB)
+#10 113.0 Collecting aiosqlite<1,>=0.17.0
+#10 113.1   Downloading aiosqlite-0.18.0-py3-none-any.whl (15 kB)
+#10 113.2 Collecting argon2-cffi-bindings
+#10 113.3   Downloading argon2_cffi_bindings-21.2.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (86 kB)
+#10 113.4      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.2/86.2 KB 961.8 kB/s eta 0:00:00
+#10 113.8 Collecting psutil
+#10 113.9   Downloading psutil-5.9.4-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (280 kB)
+#10 114.1      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 280.2/280.2 KB 1.0 MB/s eta 0:00:00
+#10 114.5 Collecting debugpy>=1.6.5
+#10 114.6   Downloading debugpy-1.6.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+#10 117.1      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 1.2 MB/s eta 0:00:00
+#10 117.2 Collecting comm>=0.1.1
+#10 117.2   Downloading comm-0.1.2-py3-none-any.whl (6.5 kB)
+#10 117.5 Collecting executing>=1.2.0
+#10 117.5   Downloading executing-1.2.0-py2.py3-none-any.whl (24 kB)
+#10 117.7 Collecting asttokens>=2.1.0
+#10 117.7   Downloading asttokens-2.2.1-py2.py3-none-any.whl (26 kB)
+#10 117.8 Collecting pure-eval
+#10 117.9   Downloading pure_eval-0.2.2-py3-none-any.whl (11 kB)
+#10 118.1 Collecting fqdn
+#10 118.2   Downloading fqdn-1.5.1-py3-none-any.whl (9.1 kB)
+#10 118.3 Collecting isoduration
+#10 118.4   Downloading isoduration-20.11.0-py3-none-any.whl (11 kB)
+#10 118.5 Collecting jsonpointer>1.13
+#10 118.6   Downloading jsonpointer-2.3-py2.py3-none-any.whl (7.8 kB)
+#10 118.7 Collecting webcolors>=1.11
+#10 118.7   Downloading webcolors-1.12-py3-none-any.whl (9.9 kB)
+#10 118.8 Collecting uri-template
+#10 118.9   Downloading uri_template-1.2.0-py3-none-any.whl (10 kB)
+#10 119.5 Collecting cffi>=1.0.1
+#10 119.5   Downloading cffi-1.15.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (441 kB)
+#10 119.9      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 441.8/441.8 KB 1.3 MB/s eta 0:00:00
+#10 120.0 Collecting soupsieve>1.2
+#10 120.1   Downloading soupsieve-2.3.2.post1-py3-none-any.whl (37 kB)
+#10 120.5 Collecting webencodings
+#10 120.6   Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+#10 120.8 Collecting pycparser
+#10 120.9   Downloading pycparser-2.21-py2.py3-none-any.whl (118 kB)
+#10 121.0      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.7/118.7 KB 1.5 MB/s eta 0:00:00
+#10 121.2 Collecting arrow>=0.15.0
+#10 121.2   Downloading arrow-1.2.3-py3-none-any.whl (66 kB)
+#10 121.3      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.4/66.4 KB 1.5 MB/s eta 0:00:00
+#10 122.0 Installing collected packages: y-py, webencodings, wcwidth, send2trash, pytz, pure-eval, ptyprocess, pickleshare, mistune, json5, ipython-genutils, fastjsonschema, executing, charset-normalizer, backcall, websocket-client, webcolors, urllib3, uri-template, traitlets, tornado, tomli, tinycss2, soupsieve, sniffio, six, rfc3986-validator, pyzmq, pyyaml, python-json-logger, pyrsistent, pyparsing, pygments, pycparser, psutil, prompt-toolkit, prometheus-client, platformdirs, pillow, pexpect, parso, pandocfilters, packaging, numpy, nest-asyncio, MarkupSafe, kiwisolver, jupyterlab-pygments, jupyter-ydoc, jsonpointer, idna, fqdn, fonttools, defusedxml, decorator, debugpy, cycler, certifi, babel, attrs, aiosqlite, aiofiles, ypy-websocket, terminado, rfc3339-validator, requests, python-dateutil, matplotlib-inline, jupyter-core, jsonschema, jinja2, jedi, contourpy, comm, cffi, bleach, beautifulsoup4, asttokens, anyio, stack-data, pandas, nbformat, matplotlib, jupyter-server-terminals, jupyter-client, arrow, argon2-cffi-bindings, nbclient, isoduration, ipython, argon2-cffi, nbconvert, ipykernel, jupyter-events, jupyter-server, notebook-shim, jupyterlab-server, jupyter-server-fileid, nbclassic, jupyter-server-ydoc, notebook, jupyterlab
+#10 134.8 Successfully installed MarkupSafe-2.1.2 aiofiles-22.1.0 aiosqlite-0.18.0 anyio-3.6.2 argon2-cffi-21.3.0 argon2-cffi-bindings-21.2.0 arrow-1.2.3 asttokens-2.2.1 attrs-22.2.0 babel-2.11.0 backcall-0.2.0 beautifulsoup4-4.11.2 bleach-6.0.0 certifi-2022.12.7 cffi-1.15.1 charset-normalizer-3.0.1 comm-0.1.2 contourpy-1.0.7 cycler-0.11.0 debugpy-1.6.6 decorator-5.1.1 defusedxml-0.7.1 executing-1.2.0 fastjsonschema-2.16.2 fonttools-4.38.0 fqdn-1.5.1 idna-3.4 ipykernel-6.21.1 ipython-8.9.0 ipython-genutils-0.2.0 isoduration-20.11.0 jedi-0.18.2 jinja2-3.1.2 json5-0.9.11 jsonpointer-2.3 jsonschema-4.17.3 jupyter-client-8.0.2 jupyter-core-5.2.0 jupyter-events-0.5.0 jupyter-server-2.2.1 jupyter-server-fileid-0.6.0 jupyter-server-terminals-0.4.4 jupyter-server-ydoc-0.6.1 jupyter-ydoc-0.2.2 jupyterlab-3.6.1 jupyterlab-pygments-0.2.2 jupyterlab-server-2.19.0 kiwisolver-1.4.4 matplotlib-3.6.3 matplotlib-inline-0.1.6 mistune-2.0.4 nbclassic-0.5.1 nbclient-0.7.2 nbconvert-7.2.9 nbformat-5.7.3 nest-asyncio-1.5.6 notebook-6.5.2 notebook-shim-0.2.2 numpy-1.24.2 packaging-23.0 pandas-1.5.3 pandocfilters-1.5.0 parso-0.8.3 pexpect-4.8.0 pickleshare-0.7.5 pillow-9.4.0 platformdirs-3.0.0 prometheus-client-0.16.0 prompt-toolkit-3.0.36 psutil-5.9.4 ptyprocess-0.7.0 pure-eval-0.2.2 pycparser-2.21 pygments-2.14.0 pyparsing-3.0.9 pyrsistent-0.19.3 python-dateutil-2.8.2 python-json-logger-2.0.4 pytz-2022.7.1 pyyaml-6.0 pyzmq-25.0.0 requests-2.28.2 rfc3339-validator-0.1.4 rfc3986-validator-0.1.1 send2trash-1.8.0 six-1.16.0 sniffio-1.3.0 soupsieve-2.3.2.post1 stack-data-0.6.2 terminado-0.17.1 tinycss2-1.2.1 tomli-2.0.1 tornado-6.2 traitlets-5.9.0 uri-template-1.2.0 urllib3-1.26.14 wcwidth-0.2.6 webcolors-1.12 webencodings-0.5.1 websocket-client-1.5.1 y-py-0.5.5 ypy-websocket-0.8.2
+#10 134.8 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#10 DONE 135.4s
+
+#11 [ 7/15] RUN adduser --disabled-password         --gecos "Default user"         --uid 1000         --home /home/clojure         clojure     && chown -R clojure:clojure /home/clojure
+#11 sha256:1c1d46dbea00a27e1ac040da50d6463ecb4867ed3737dba28611a24ee5e1de6d
+#11 0.462 Warning: The home dir /home/clojure you specified already exists.
+#11 0.462 Adding user `clojure' ...
+#11 0.462 Adding new group `clojure' (1000) ...
+#11 0.474 Adding new user `clojure' (1000) with group `clojure' ...
+#11 0.497 The home directory `/home/clojure' already exists.  Not copying from `/etc/skel'.
+#11 0.497 adduser: Warning: The home directory `/home/clojure' does not belong to the user you are currently creating.
+#11 DONE 1.1s
+
+#12 [ 8/15] RUN sed -i -e         's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/'         /etc/locale.gen     && dpkg-reconfigure --frontend=noninteractive locales     && update-locale LANG=en_US.UTF-8
+#12 sha256:df2968506682f109a779446d3db01b4ef30d5a286db549e33d40d9c1970f9305
+#12 0.806 Generating locales (this might take a while)...
+#12 0.818   en_US.UTF-8... done
+#12 1.917 Generation complete.
+#12 DONE 2.0s
+
+#13 [ 9/15] WORKDIR /home/clojure
+#13 sha256:eb9f5d6f38ae393fa5671ac6ec211e46f40c05ddf037d10d9dd953809cba9662
+#13 DONE 0.0s
+
+#14 [10/15] RUN mkdir -p /home/clojure/notebooks     && git clone https://github.com/clojupyter/clojupyter.git /home/clojure/clojupyter
+#14 sha256:cc7c761ab725e14c31b8347385803b88abdd01c564b87cdf6e1426dacb22ccba
+#14 0.376 Cloning into '/home/clojure/clojupyter'...
+#14 DONE 51.1s
+
+#15 [11/15] WORKDIR /home/clojure/clojupyter
+#15 sha256:b2cf04a2d19495747468cf86e9e931877e8d32d80889233d08a38c31448b9de7
+#15 DONE 0.0s
+
+#16 [12/15] RUN git checkout 0.3.6
+#16 sha256:d447f63971044e7978b9f030bc0d832bbd8fe0ddf15c321e90ecaafa8852b9b8
+#16 0.293 Note: switching to '0.3.6'.
+#16 0.293 
+#16 0.293 You are in 'detached HEAD' state. You can look around, make experimental
+#16 0.293 changes and commit them, and you can discard any commits you make in this
+#16 0.293 state without impacting any branches by switching back to a branch.
+#16 0.293 
+#16 0.293 If you want to create a new branch to retain commits you create, you may
+#16 0.293 do so (now or later) by using -c with the switch command. Example:
+#16 0.293 
+#16 0.293   git switch -c <new-branch-name>
+#16 0.293 
+#16 0.293 Or undo this operation with:
+#16 0.293 
+#16 0.293   git switch -
+#16 0.293 
+#16 0.293 Turn off this advice by setting config variable advice.detachedHead to false
+#16 0.293 
+#16 0.293 HEAD is now at fa63011 Bump version: 0.3.6
+#16 DONE 0.3s
+
+#17 [13/15] COPY project.clj .
+#17 sha256:1c8097801f665276a4b9e7d406ab7e456479451558b4d0cbbd35a4176fb49b52
+#17 DONE 0.0s
+
+#18 [14/15] RUN make     && make install     && rm -rf /home/clojure/clojupyter
+#18 sha256:82086942779f53686c9c7d13842b246135d8a6e493001ee623d1b92ac153b91b
+#18 0.379 lein clean
+#18 2.217 Retrieving lein-midje/lein-midje/3.2.1/lein-midje-3.2.1.pom from clojars
+#18 2.472 Retrieving com/roomkey/lein-v/7.0.0/lein-v-7.0.0.pom from clojars
+#18 2.619 Retrieving org/clojure/clojure/1.10.0/clojure-1.10.0.pom from central
+#18 2.771 Retrieving org/clojure/spec.alpha/0.2.176/spec.alpha-0.2.176.pom from central
+#18 2.919 Retrieving org/clojure/pom.contrib/0.2.2/pom.contrib-0.2.2.pom from central
+#18 3.078 Retrieving org/clojure/core.specs.alpha/0.2.44/core.specs.alpha-0.2.44.pom from central
+#18 3.226 Retrieving org/apache/maven/maven-artifact/3.6.0/maven-artifact-3.6.0.pom from central
+#18 3.372 Retrieving org/apache/maven/maven/3.6.0/maven-3.6.0.pom from central
+#18 3.529 Retrieving org/apache/maven/maven-parent/33/maven-parent-33.pom from central
+#18 3.703 Retrieving org/apache/apache/21/apache-21.pom from central
+#18 3.870 Retrieving org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.pom from central
+#18 4.014 Retrieving org/codehaus/plexus/plexus/4.0/plexus-4.0.pom from central
+#18 4.165 Retrieving org/sonatype/forge/forge-parent/10/forge-parent-10.pom from central
+#18 4.314 Retrieving org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.pom from central
+#18 4.473 Retrieving org/apache/commons/commons-parent/47/commons-parent-47.pom from central
+#18 4.664 Retrieving org/apache/apache/19/apache-19.pom from central
+#18 4.898 Retrieving org/apache/maven/maven-artifact/3.6.0/maven-artifact-3.6.0.jar from central
+#18 4.982 Retrieving org/clojure/core.specs.alpha/0.2.44/core.specs.alpha-0.2.44.jar from central
+#18 4.988 Retrieving org/clojure/spec.alpha/0.2.176/spec.alpha-0.2.176.jar from central
+#18 5.000 Retrieving org/clojure/clojure/1.10.0/clojure-1.10.0.jar from central
+#18 5.050 Retrieving org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar from central
+#18 5.075 Retrieving org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar from central
+#18 9.114 Retrieving lein-midje/lein-midje/3.2.1/lein-midje-3.2.1.jar from clojars
+#18 9.248 Retrieving com/roomkey/lein-v/7.0.0/lein-v-7.0.0.jar from clojars
+#18 10.01 lein uberjar
+#18 12.41 Retrieving cheshire/cheshire/5.11.0/cheshire-5.11.0.pom from clojars
+#18 12.56 Retrieving com/fasterxml/jackson/core/jackson-core/2.13.3/jackson-core-2.13.3.pom from central
+#18 12.72 Retrieving com/fasterxml/jackson/jackson-base/2.13.3/jackson-base-2.13.3.pom from central
+#18 12.86 Retrieving com/fasterxml/jackson/jackson-bom/2.13.3/jackson-bom-2.13.3.pom from central
+#18 13.03 Retrieving com/fasterxml/jackson/jackson-parent/2.13/jackson-parent-2.13.pom from central
+#18 13.17 Retrieving com/fasterxml/oss-parent/43/oss-parent-43.pom from central
+#18 13.34 Retrieving com/fasterxml/jackson/dataformat/jackson-dataformat-smile/2.13.3/jackson-dataformat-smile-2.13.3.pom from central
+#18 13.48 Retrieving com/fasterxml/jackson/dataformat/jackson-dataformats-binary/2.13.3/jackson-dataformats-binary-2.13.3.pom from central
+#18 13.64 Retrieving com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.13.3/jackson-dataformat-cbor-2.13.3.pom from central
+#18 13.87 Retrieving tigris/tigris/0.1.2/tigris-0.1.2.pom from clojars
+#18 14.08 Retrieving cider/cider-nrepl/0.26.0/cider-nrepl-0.26.0.pom from clojars
+#18 14.30 Retrieving nrepl/nrepl/0.8.3/nrepl-0.8.3.pom from clojars
+#18 14.51 Retrieving clojure/java-time/clojure.java-time/1.1.0/clojure.java-time-1.1.0.pom from clojars
+#18 14.66 Retrieving com/cemerick/pomegranate/1.1.0/pomegranate-1.1.0.pom from central
+#18 14.80 Retrieving org/clojure/pom.contrib/0.0.20/pom.contrib-0.0.20.pom from central
+#18 14.96 Retrieving org/sonatype/oss/oss-parent/5/oss-parent-5.pom from central
+#18 15.12 Retrieving org/apache/maven/maven-resolver-provider/3.5.3/maven-resolver-provider-3.5.3.pom from central
+#18 15.26 Retrieving org/apache/maven/maven/3.5.3/maven-3.5.3.pom from central
+#18 15.42 Retrieving org/apache/maven/maven-parent/31/maven-parent-31.pom from central
+#18 15.60 Retrieving org/apache/maven/maven-model/3.5.3/maven-model-3.5.3.pom from central
+#18 15.76 Retrieving org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.pom from central
+#18 15.92 Retrieving org/apache/commons/commons-parent/41/commons-parent-41.pom from central
+#18 16.11 Retrieving org/apache/apache/18/apache-18.pom from central
+#18 16.27 Retrieving org/apache/maven/maven-model-builder/3.5.3/maven-model-builder-3.5.3.pom from central
+#18 16.43 Retrieving org/codehaus/plexus/plexus-interpolation/1.24/plexus-interpolation-1.24.pom from central
+#18 16.58 Retrieving org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.pom from central
+#18 16.72 Retrieving org/codehaus/plexus/plexus-containers/1.7.1/plexus-containers-1.7.1.pom from central
+#18 16.87 Retrieving org/apache/maven/maven-artifact/3.5.3/maven-artifact-3.5.3.pom from central
+#18 17.03 Retrieving org/apache/maven/maven-builder-support/3.5.3/maven-builder-support-3.5.3.pom from central
+#18 17.19 Retrieving com/google/guava/guava/20.0/guava-20.0.pom from central
+#18 17.34 Retrieving com/google/guava/guava-parent/20.0/guava-parent-20.0.pom from central
+#18 17.48 Retrieving org/sonatype/oss/oss-parent/7/oss-parent-7.pom from central
+#18 17.63 Retrieving org/apache/maven/maven-repository-metadata/3.5.3/maven-repository-metadata-3.5.3.pom from central
+#18 17.79 Retrieving org/apache/maven/resolver/maven-resolver-api/1.1.1/maven-resolver-api-1.1.1.pom from central
+#18 17.94 Retrieving org/apache/maven/resolver/maven-resolver/1.1.1/maven-resolver-1.1.1.pom from central
+#18 18.10 Retrieving org/apache/maven/resolver/maven-resolver-spi/1.1.1/maven-resolver-spi-1.1.1.pom from central
+#18 18.25 Retrieving org/apache/maven/resolver/maven-resolver-util/1.1.1/maven-resolver-util-1.1.1.pom from central
+#18 18.40 Retrieving org/apache/maven/resolver/maven-resolver-impl/1.1.1/maven-resolver-impl-1.1.1.pom from central
+#18 18.55 Retrieving javax/inject/javax.inject/1/javax.inject-1.pom from central
+#18 18.70 Retrieving org/apache/maven/resolver/maven-resolver-transport-file/1.0.3/maven-resolver-transport-file-1.0.3.pom from central
+#18 18.84 Retrieving org/apache/maven/resolver/maven-resolver/1.0.3/maven-resolver-1.0.3.pom from central
+#18 18.99 Retrieving org/apache/maven/maven-parent/27/maven-parent-27.pom from central
+#18 19.14 Retrieving org/apache/apache/17/apache-17.pom from central
+#18 19.29 Retrieving org/apache/maven/resolver/maven-resolver-api/1.0.3/maven-resolver-api-1.0.3.pom from central
+#18 19.45 Retrieving org/apache/maven/resolver/maven-resolver-spi/1.0.3/maven-resolver-spi-1.0.3.pom from central
+#18 19.60 Retrieving org/apache/maven/resolver/maven-resolver-util/1.0.3/maven-resolver-util-1.0.3.pom from central
+#18 19.75 Retrieving org/apache/maven/resolver/maven-resolver-transport-http/1.0.3/maven-resolver-transport-http-1.0.3.pom from central
+#18 19.91 Retrieving org/apache/httpcomponents/httpclient/4.2.6/httpclient-4.2.6.pom from central
+#18 20.06 Retrieving org/apache/httpcomponents/httpcomponents-client/4.2.6/httpcomponents-client-4.2.6.pom from central
+#18 20.21 Retrieving org/apache/httpcomponents/project/7/project-7.pom from central
+#18 20.37 Retrieving org/apache/apache/13/apache-13.pom from central
+#18 20.53 Retrieving org/apache/httpcomponents/httpcore/4.2.5/httpcore-4.2.5.pom from central
+#18 20.67 Retrieving org/apache/httpcomponents/httpcomponents-core/4.2.5/httpcomponents-core-4.2.5.pom from central
+#18 20.83 Retrieving commons-codec/commons-codec/1.6/commons-codec-1.6.pom from central
+#18 20.97 Retrieving org/apache/commons/commons-parent/22/commons-parent-22.pom from central
+#18 21.13 Retrieving org/apache/apache/9/apache-9.pom from central
+#18 21.28 Retrieving org/slf4j/jcl-over-slf4j/1.6.2/jcl-over-slf4j-1.6.2.pom from central
+#18 21.42 Retrieving org/slf4j/slf4j-parent/1.6.2/slf4j-parent-1.6.2.pom from central
+#18 21.57 Retrieving org/slf4j/slf4j-api/1.6.2/slf4j-api-1.6.2.pom from central
+#18 21.71 Retrieving org/apache/maven/resolver/maven-resolver-transport-wagon/1.0.3/maven-resolver-transport-wagon-1.0.3.pom from central
+#18 21.86 Retrieving org/apache/maven/wagon/wagon-provider-api/1.0/wagon-provider-api-1.0.pom from central
+#18 22.00 Retrieving org/apache/maven/wagon/wagon/1.0/wagon-1.0.pom from central
+#18 22.14 Retrieving org/apache/maven/maven-parent/20/maven-parent-20.pom from central
+#18 22.29 Retrieving org/codehaus/plexus/plexus-utils/1.4.2/plexus-utils-1.4.2.pom from central
+#18 22.43 Retrieving org/codehaus/plexus/plexus/1.0.11/plexus-1.0.11.pom from central
+#18 22.58 Retrieving org/apache/maven/resolver/maven-resolver-connector-basic/1.0.3/maven-resolver-connector-basic-1.0.3.pom from central
+#18 22.73 Retrieving org/tcrawley/dynapath/1.0.0/dynapath-1.0.0.pom from central
+#18 22.87 Retrieving org/apache/maven/wagon/wagon-provider-api/3.0.0/wagon-provider-api-3.0.0.pom from central
+#18 23.01 Retrieving org/apache/maven/wagon/wagon/3.0.0/wagon-3.0.0.pom from central
+#18 23.17 Retrieving org/codehaus/plexus/plexus-utils/3.0.24/plexus-utils-3.0.24.pom from central
+#18 23.31 Retrieving org/apache/maven/wagon/wagon-http/3.0.0/wagon-http-3.0.0.pom from central
+#18 23.46 Retrieving org/apache/maven/wagon/wagon-providers/3.0.0/wagon-providers-3.0.0.pom from central
+#18 23.61 Retrieving org/apache/maven/wagon/wagon-http-shared/3.0.0/wagon-http-shared-3.0.0.pom from central
+#18 23.75 Retrieving org/jsoup/jsoup/1.7.2/jsoup-1.7.2.pom from central
+#18 23.90 Retrieving org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.pom from central
+#18 24.04 Retrieving org/apache/httpcomponents/httpcomponents-client/4.5.3/httpcomponents-client-4.5.3.pom from central
+#18 24.19 Retrieving org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.pom from central
+#18 24.33 Retrieving org/apache/httpcomponents/httpcomponents-core/4.4.6/httpcomponents-core-4.4.6.pom from central
+#18 24.48 Retrieving commons-codec/commons-codec/1.9/commons-codec-1.9.pom from central
+#18 24.62 Retrieving org/apache/commons/commons-parent/32/commons-parent-32.pom from central
+#18 24.79 Retrieving commons-io/commons-io/2.5/commons-io-2.5.pom from central
+#18 24.93 Retrieving org/apache/commons/commons-parent/39/commons-parent-39.pom from central
+#18 25.09 Retrieving org/apache/apache/16/apache-16.pom from central
+#18 25.26 Retrieving org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.pom from central
+#18 25.39 Retrieving org/slf4j/slf4j-parent/1.7.22/slf4j-parent-1.7.22.pom from central
+#18 25.54 Retrieving org/slf4j/jcl-over-slf4j/1.7.22/jcl-over-slf4j-1.7.22.pom from central
+#18 25.69 Retrieving commons-logging/commons-logging/1.2/commons-logging-1.2.pom from central
+#18 25.83 Retrieving org/apache/commons/commons-parent/34/commons-parent-34.pom from central
+#18 26.01 Retrieving org/clojure/clojure/1.3.0/clojure-1.3.0.pom from central
+#18 26.22 Retrieving com/grammarly/omniconf/0.4.3/omniconf-0.4.3.pom from clojars
+#18 26.42 Retrieving com/taoensso/timbre/5.2.1/timbre-5.2.1.pom from clojars
+#18 26.63 Retrieving com/taoensso/encore/3.21.0/encore-3.21.0.pom from clojars
+#18 26.77 Retrieving org/clojure/tools.reader/1.3.6/tools.reader-1.3.6.pom from central
+#18 26.91 Retrieving org/clojure/pom.contrib/1.1.0/pom.contrib-1.1.0.pom from central
+#18 27.04 Retrieving org/clojure/clojure/1.5.1/clojure-1.5.1.pom from central
+#18 27.26 Retrieving com/taoensso/truss/1.6.0/truss-1.6.0.pom from clojars
+#18 27.47 Retrieving io/aviso/pretty/1.1.1/pretty-1.1.1.pom from clojars
+#18 27.82 Retrieving org/clojure/clojure/1.7.0/clojure-1.7.0.pom from central
+#18 28.04 Retrieving hiccup/hiccup/2.0.0-alpha2/hiccup-2.0.0-alpha2.pom from clojars
+#18 28.24 Retrieving io/forward/yaml/1.0.11/yaml-1.0.11.pom from clojars
+#18 28.39 Retrieving org/clojure/clojure/1.6.0/clojure-1.6.0.pom from central
+#18 28.53 Retrieving org/yaml/snakeyaml/1.25/snakeyaml-1.25.pom from central
+#18 28.77 Retrieving org/flatland/ordered/1.15.10/ordered-1.15.10.pom from clojars
+#18 28.91 Retrieving org/clojure/clojure/1.10.1/clojure-1.10.1.pom from central
+#18 29.13 Retrieving incanter/incanter/1.9.3/incanter-1.9.3.pom from clojars
+#18 29.34 Retrieving incanter/incanter-core/1.9.3/incanter-core-1.9.3.pom from clojars
+#18 29.48 Retrieving org/clojure/clojure/1.8.0/clojure-1.8.0.pom from central
+#18 29.62 Retrieving org/clojure/math.combinatorics/0.1.4/math.combinatorics-0.1.4.pom from central
+#18 29.76 Retrieving org/clojure/pom.contrib/0.2.0/pom.contrib-0.2.0.pom from central
+#18 30.33 Retrieving net/mikera/vectorz-clj/0.44.1/vectorz-clj-0.44.1.pom from clojars
+#18 30.54 Retrieving net/mikera/clojure-pom/0.6.0/clojure-pom-0.6.0.pom from clojars
+#18 30.68 Retrieving net/mikera/mikera-pom/0.6.0/mikera-pom-0.6.0.pom from central
+#18 30.82 Retrieving org/sonatype/oss/oss-parent/9/oss-parent-9.pom from central
+#18 30.96 Retrieving net/mikera/vectorz/0.62.0/vectorz-0.62.0.pom from central
+#18 31.10 Retrieving us/bpsm/edn-java/0.4.6/edn-java-0.4.6.pom from central
+#18 31.25 Retrieving net/mikera/randomz/0.3.0/randomz-0.3.0.pom from central
+#18 31.38 Retrieving net/mikera/mikera-pom/0.0.5/mikera-pom-0.0.5.pom from central
+#18 31.53 Retrieving net/mikera/mathz/0.3.0/mathz-0.3.0.pom from central
+#18 31.74 Retrieving net/mikera/core.matrix/0.52.0/core.matrix-0.52.0.pom from clojars
+#18 31.89 Retrieving org/clojure/tools.macro/0.1.5/tools.macro-0.1.5.pom from central
+#18 32.04 Retrieving org/clojure/pom.contrib/0.1.2/pom.contrib-0.1.2.pom from central
+#18 32.25 Retrieving net/mikera/clojure-utils/0.7.0/clojure-utils-0.7.0.pom from clojars
+#18 32.46 Retrieving net/mikera/clojure-pom/0.5.0/clojure-pom-0.5.0.pom from clojars
+#18 32.62 Retrieving net/mikera/mikera-pom/0.5.0/mikera-pom-0.5.0.pom from central
+#18 32.76 Retrieving net/sourceforge/parallelcolt/parallelcolt/0.10.1/parallelcolt-0.10.1.pom from central
+#18 32.90 Retrieving net/sourceforge/jplasma/jplasma/1.2.0/jplasma-1.2.0.pom from central
+#18 33.04 Retrieving net/sourceforge/jplasma/core-lapack/0.1/core-lapack-0.1.pom from central
+#18 33.18 Retrieving net/sourceforge/f2j/arpack_combined_all/0.1/arpack_combined_all-0.1.pom from central
+#18 33.32 Retrieving net/sourceforge/jtransforms/jtransforms/2.4.0/jtransforms-2.4.0.pom from central
+#18 33.46 Retrieving junit/junit/4.8.2/junit-4.8.2.pom from central
+#18 33.60 Retrieving net/sourceforge/csparsej/csparsej/1.1.1/csparsej-1.1.1.pom from central
+#18 33.74 Retrieving net/sourceforge/parallelcolt/optimization/1.0/optimization-1.0.pom from central
+#18 33.89 Retrieving com/googlecode/netlib-java/netlib-java/0.9.3/netlib-java-0.9.3.pom from central
+#18 34.02 Retrieving com/github/rwl/JKLU/1.0.0/JKLU-1.0.0.pom from central
+#18 34.16 Retrieving com/github/rwl/BTFJ/1.0.1/BTFJ-1.0.1.pom from central
+#18 34.31 Retrieving com/github/rwl/AMDJ/1.0.1/AMDJ-1.0.1.pom from central
+#18 34.45 Retrieving com/github/rwl/COLAMDJ/1.0.1/COLAMDJ-1.0.1.pom from central
+#18 34.65 Retrieving incanter/incanter-io/1.9.3/incanter-io-1.9.3.pom from clojars
+#18 34.79 Retrieving net/sf/opencsv/opencsv/2.3/opencsv-2.3.pom from central
+#18 34.94 Retrieving org/clojure/data.csv/0.1.4/data.csv-0.1.4.pom from central
+#18 35.15 Retrieving org/danlarkin/clojure-json/1.1/clojure-json-1.1.pom from clojars
+#18 35.35 Retrieving incanter/incanter-charts/1.9.3/incanter-charts-1.9.3.pom from clojars
+#18 35.83 Retrieving org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.pom from central
+#18 35.97 Retrieving org/jfree/jcommon/1.0.23/jcommon-1.0.23.pom from central
+#18 36.47 Retrieving clj-time/clj-time/0.14.0/clj-time-0.14.0.pom from clojars
+#18 36.61 Retrieving joda-time/joda-time/2.9.7/joda-time-2.9.7.pom from central
+#18 36.84 Retrieving incanter/incanter-mongodb/1.9.3/incanter-mongodb-1.9.3.pom from clojars
+#18 37.40 Retrieving congomongo/congomongo/0.5.0/congomongo-0.5.0.pom from clojars
+#18 37.54 Retrieving org/clojure/data.json/0.2.6/data.json-0.2.6.pom from central
+#18 37.68 Retrieving org/mongodb/mongo-java-driver/2.14.0/mongo-java-driver-2.14.0.pom from central
+#18 37.88 Retrieving incanter/incanter-pdf/1.9.3/incanter-pdf-1.9.3.pom from clojars
+#18 38.04 Retrieving com/lowagie/itext/2.1.7/itext-2.1.7.pom from central
+#18 38.19 Retrieving bouncycastle/bctsp-jdk14/138/bctsp-jdk14-138.pom from central
+#18 38.33 Retrieving org/bouncycastle/bctsp-jdk14/1.38/bctsp-jdk14-1.38.pom from central
+#18 38.47 Retrieving org/bouncycastle/bctsp-jdk14/1.46/bctsp-jdk14-1.46.pom from central
+#18 38.61 Retrieving org/bouncycastle/bcprov-jdk14/1.46/bcprov-jdk14-1.46.pom from central
+#18 38.74 Retrieving org/bouncycastle/bcmail-jdk14/1.46/bcmail-jdk14-1.46.pom from central
+#18 38.95 Retrieving incanter/incanter-svg/1.9.3/incanter-svg-1.9.3.pom from clojars
+#18 39.09 Retrieving org/apache/xmlgraphics/batik-dom/1.9.1/batik-dom-1.9.1.pom from central
+#18 39.23 Retrieving org/apache/xmlgraphics/batik/1.9.1/batik-1.9.1.pom from central
+#18 39.37 Retrieving org/apache/xmlgraphics/batik-css/1.9.1/batik-css-1.9.1.pom from central
+#18 39.52 Retrieving org/apache/xmlgraphics/batik-util/1.9.1/batik-util-1.9.1.pom from central
+#18 39.66 Retrieving org/apache/xmlgraphics/batik-constants/1.9.1/batik-constants-1.9.1.pom from central
+#18 39.80 Retrieving org/apache/xmlgraphics/batik-i18n/1.9.1/batik-i18n-1.9.1.pom from central
+#18 39.94 Retrieving org/apache/xmlgraphics/xmlgraphics-commons/2.2/xmlgraphics-commons-2.2.pom from central
+#18 40.10 Retrieving org/apache/apache/7/apache-7.pom from central
+#18 40.26 Retrieving commons-io/commons-io/1.3.1/commons-io-1.3.1.pom from central
+#18 40.40 Retrieving commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.pom from central
+#18 40.54 Retrieving xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.pom from central
+#18 40.67 Retrieving org/apache/apache/3/apache-3.pom from central
+#18 40.82 Retrieving org/apache/xmlgraphics/batik-ext/1.9.1/batik-ext-1.9.1.pom from central
+#18 40.97 Retrieving org/apache/xmlgraphics/batik-xml/1.9.1/batik-xml-1.9.1.pom from central
+#18 41.11 Retrieving xalan/xalan/2.7.2/xalan-2.7.2.pom from central
+#18 41.24 Retrieving org/apache/apache/4/apache-4.pom from central
+#18 41.38 Retrieving xalan/serializer/2.7.2/serializer-2.7.2.pom from central
+#18 41.52 Retrieving xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.pom from central
+#18 41.66 Retrieving org/apache/xmlgraphics/batik-svggen/1.9.1/batik-svggen-1.9.1.pom from central
+#18 41.80 Retrieving org/apache/xmlgraphics/batik-awt-util/1.9.1/batik-awt-util-1.9.1.pom from central
+#18 42.02 Retrieving incanter/incanter-latex/1.9.3/incanter-latex-1.9.3.pom from clojars
+#18 42.16 Retrieving org/scilab/forge/jlatexmath/1.0.6/jlatexmath-1.0.6.pom from central
+#18 42.31 Retrieving org/scilab/forge/jlatexmath-parent/1.0.6/jlatexmath-parent-1.0.6.pom from central
+#18 42.44 Retrieving com/github/davidmoten/sonatype-parent/0.1/sonatype-parent-0.1.pom from central
+#18 42.60 Retrieving org/scilab/forge/jlatexmath-font-greek/1.0.6/jlatexmath-font-greek-1.0.6.pom from central
+#18 42.76 Retrieving org/scilab/forge/jlatexmath-font-cyrillic/1.0.6/jlatexmath-font-cyrillic-1.0.6.pom from central
+#18 42.96 Retrieving incanter/incanter-excel/1.9.3/incanter-excel-1.9.3.pom from clojars
+#18 43.10 Retrieving org/apache/poi/poi-ooxml/3.16/poi-ooxml-3.16.pom from central
+#18 43.24 Retrieving org/apache/poi/poi/3.16/poi-3.16.pom from central
+#18 43.38 Retrieving commons-codec/commons-codec/1.10/commons-codec-1.10.pom from central
+#18 43.52 Retrieving org/apache/commons/commons-parent/35/commons-parent-35.pom from central
+#18 43.68 Retrieving org/apache/apache/15/apache-15.pom from central
+#18 43.83 Retrieving org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.pom from central
+#18 43.99 Retrieving org/apache/commons/commons-parent/38/commons-parent-38.pom from central
+#18 44.18 Retrieving org/apache/poi/poi-ooxml-schemas/3.16/poi-ooxml-schemas-3.16.pom from central
+#18 44.32 Retrieving org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.pom from central
+#18 44.45 Retrieving stax/stax-api/1.0.1/stax-api-1.0.1.pom from central
+#18 44.59 Retrieving com/github/virtuald/curvesapi/1.04/curvesapi-1.04.pom from central
+#18 44.81 Retrieving incanter/incanter-sql/1.9.3/incanter-sql-1.9.3.pom from clojars
+#18 45.01 Retrieving clojureql/clojureql/1.0.5/clojureql-1.0.5.pom from clojars
+#18 45.15 Retrieving org/clojure/core.incubator/0.1.4/core.incubator-0.1.4.pom from central
+#18 45.29 Retrieving org/clojure/java.jdbc/0.2.3/java.jdbc-0.2.3.pom from central
+#18 45.43 Retrieving org/clojure/pom.contrib/0.0.25/pom.contrib-0.0.25.pom from central
+#18 45.57 Retrieving org/clojure/tools.nrepl/0.2.12/tools.nrepl-0.2.12.pom from central
+#18 45.71 Retrieving mysql/mysql-connector-java/5.1.17/mysql-connector-java-5.1.17.pom from central
+#18 45.85 Retrieving org/xerial/sqlite-jdbc/3.7.2/sqlite-jdbc-3.7.2.pom from central
+#18 45.98 Retrieving org/xerial/xerial-project/1.1/xerial-project-1.1.pom from central
+#18 46.12 Retrieving org/xerial/xerial/3/xerial-3.pom from central
+#18 46.27 Retrieving postgresql/postgresql/8.4-702.jdbc4/postgresql-8.4-702.jdbc4.pom from central
+#18 46.40 Retrieving org/apache/derby/derby/10.1.1.0/derby-10.1.1.0.pom from central
+#18 46.61 Retrieving incanter/incanter-zoo/1.9.3/incanter-zoo-1.9.3.pom from clojars
+#18 46.82 Retrieving swingrepl/swingrepl/1.3.0/swingrepl-1.3.0.pom from clojars
+#18 47.05 Retrieving io/pedestal/pedestal.interceptor/0.5.10/pedestal.interceptor-0.5.10.pom from clojars
+#18 47.19 Retrieving org/clojure/core.async/0.4.490/core.async-0.4.490.pom from central
+#18 47.42 Retrieving io/pedestal/pedestal.log/0.5.10/pedestal.log-0.5.10.pom from clojars
+#18 47.57 Retrieving org/slf4j/slf4j-api/1.7.26/slf4j-api-1.7.26.pom from central
+#18 47.70 Retrieving org/slf4j/slf4j-parent/1.7.26/slf4j-parent-1.7.26.pom from central
+#18 47.86 Retrieving io/dropwizard/metrics/metrics-core/4.1.0/metrics-core-4.1.0.pom from central
+#18 48.00 Retrieving io/dropwizard/metrics/metrics-parent/4.1.0/metrics-parent-4.1.0.pom from central
+#18 48.14 Retrieving io/dropwizard/metrics/metrics-jmx/4.1.0/metrics-jmx-4.1.0.pom from central
+#18 48.28 Retrieving io/dropwizard/metrics/metrics-bom/4.1.0/metrics-bom-4.1.0.pom from central
+#18 48.43 Retrieving io/opentracing/opentracing-api/0.33.0/opentracing-api-0.33.0.pom from central
+#18 48.57 Retrieving io/opentracing/parent/0.33.0/parent-0.33.0.pom from central
+#18 48.73 Retrieving io/opentracing/opentracing-util/0.33.0/opentracing-util-0.33.0.pom from central
+#18 48.87 Retrieving io/opentracing/opentracing-noop/0.33.0/opentracing-noop-0.33.0.pom from central
+#18 49.00 Retrieving org/clojure/core.match/0.3.0/core.match-0.3.0.pom from central
+#18 49.15 Retrieving org/clojure/tools.analyzer.jvm/0.7.2/tools.analyzer.jvm-0.7.2.pom from central
+#18 49.30 Retrieving org/clojure/tools.analyzer/0.6.9/tools.analyzer-0.6.9.pom from central
+#18 49.44 Retrieving org/clojure/core.memoize/0.5.9/core.memoize-0.5.9.pom from central
+#18 49.59 Retrieving org/clojure/core.cache/0.6.5/core.cache-0.6.5.pom from central
+#18 49.73 Retrieving org/clojure/data.priority-map/0.0.7/data.priority-map-0.0.7.pom from central
+#18 49.87 Retrieving org/clojure/clojure/1.4.0/clojure-1.4.0.pom from central
+#18 50.01 Retrieving org/ow2/asm/asm-all/4.2/asm-all-4.2.pom from central
+#18 50.14 Retrieving org/ow2/asm/asm-parent/4.2/asm-parent-4.2.pom from central
+#18 50.28 Retrieving org/ow2/ow2/1.3/ow2-1.3.pom from central
+#18 50.43 Retrieving org/clojure/tools.reader/1.0.0-beta4/tools.reader-1.0.0-beta4.pom from central
+#18 50.63 Retrieving io/simplect/compose/0.7.27/compose-0.7.27.pom from clojars
+#18 50.84 Retrieving funcool/cats/2.3.2/cats-2.3.2.pom from clojars
+#18 50.98 Retrieving org/clojure/algo.generic/0.1.3/algo.generic-0.1.3.pom from central
+#18 51.13 Retrieving org/clojure/test.check/0.9.0/test.check-0.9.0.pom from central
+#18 51.33 Retrieving me/raynes/fs/1.4.6/fs-1.4.6.pom from clojars
+#18 51.47 Retrieving org/apache/commons/commons-compress/1.8/commons-compress-1.8.pom from central
+#18 51.62 Retrieving org/apache/commons/commons-parent/33/commons-parent-33.pom from central
+#18 51.79 Retrieving org/tukaani/xz/1.5/xz-1.5.pom from central
+#18 52.00 Retrieving net/cgrand/parsley/0.9.3/parsley-0.9.3.pom from clojars
+#18 52.20 Retrieving net/cgrand/regex/1.1.0/regex-1.1.0.pom from clojars
+#18 52.41 Retrieving net/cgrand/sjacket/0.1.1/sjacket-0.1.1.pom from clojars
+#18 52.62 Retrieving nrepl/nrepl/1.0.0/nrepl-1.0.0.pom from clojars
+#18 52.76 Retrieving org/clojure/clojure/1.11.1/clojure-1.11.1.pom from central
+#18 52.90 Retrieving org/clojure/spec.alpha/0.3.218/spec.alpha-0.3.218.pom from central
+#18 53.04 Retrieving org/clojure/core.specs.alpha/0.2.62/core.specs.alpha-0.2.62.pom from central
+#18 53.18 Retrieving org/clojure/data.codec/0.1.1/data.codec-0.1.1.pom from central
+#18 53.32 Retrieving org/clojure/data.json/2.4.0/data.json-2.4.0.pom from central
+#18 53.46 Retrieving org/clojure/clojure/1.9.0/clojure-1.9.0.pom from central
+#18 53.60 Retrieving org/clojure/spec.alpha/0.1.143/spec.alpha-0.1.143.pom from central
+#18 53.74 Retrieving org/clojure/core.specs.alpha/0.1.24/core.specs.alpha-0.1.24.pom from central
+#18 53.87 Retrieving org/clojure/java.jdbc/0.7.12/java.jdbc-0.7.12.pom from central
+#18 54.02 Retrieving org/clojure/test.check/1.1.1/test.check-1.1.1.pom from central
+#18 54.15 Retrieving org/clojure/tools.cli/1.0.206/tools.cli-1.0.206.pom from central
+#18 54.29 Retrieving org/clojure/pom.contrib/1.0.0/pom.contrib-1.0.0.pom from central
+#18 54.43 Retrieving org/xerial/sqlite-jdbc/3.39.3.0/sqlite-jdbc-3.39.3.0.pom from central
+#18 54.57 Retrieving org/zeromq/jeromq/0.5.2/jeromq-0.5.2.pom from central
+#18 54.71 Retrieving eu/neilalexander/jnacl/1.0.0/jnacl-1.0.0.pom from central
+#18 54.92 Retrieving pandect/pandect/1.0.2/pandect-1.0.2.pom from clojars
+#18 55.06 Retrieving org/clojure/tools.analyzer/1.1.0/tools.analyzer-1.1.0.pom from central
+#18 55.26 Retrieving slingshot/slingshot/0.12.2/slingshot-0.12.2.pom from clojars
+#18 55.47 Retrieving zprint/zprint/1.2.4/zprint-1.2.4.pom from clojars
+#18 55.68 Retrieving org/babashka/sci/0.3.4/sci-0.3.4.pom from clojars
+#18 55.89 Retrieving borkdude/sci.impl.reflector/0.0.1/sci.impl.reflector-0.0.1.pom from clojars
+#18 56.09 Retrieving borkdude/edamame/0.0.19/edamame-0.0.19.pom from clojars
+#18 56.26 Retrieving org/clojure/tools.reader/1.3.4/tools.reader-1.3.4.pom from central
+#18 56.47 Retrieving rewrite-clj/rewrite-clj/1.1.45/rewrite-clj-1.1.45.pom from clojars
+#18 56.61 Retrieving org/clojure/core.async/1.5.648/core.async-1.5.648.pom from central
+#18 56.75 Retrieving org/clojure/tools.analyzer.jvm/1.2.2/tools.analyzer.jvm-1.2.2.pom from central
+#18 56.89 Retrieving org/clojure/core.memoize/1.0.253/core.memoize-1.0.253.pom from central
+#18 57.03 Retrieving org/clojure/core.cache/1.0.225/core.cache-1.0.225.pom from central
+#18 57.17 Retrieving org/clojure/data.priority-map/1.1.0/data.priority-map-1.1.0.pom from central
+#18 57.30 Retrieving org/ow2/asm/asm/9.2/asm-9.2.pom from central
+#18 57.45 Retrieving org/ow2/ow2/1.5/ow2-1.5.pom from central
+#18 57.66 Retrieving com/fzakaria/slf4j-timbre/0.3.21/slf4j-timbre-0.3.21.pom from clojars
+#18 57.80 Retrieving org/clojure/clojure/1.10.3/clojure-1.10.3.pom from central
+#18 57.95 Retrieving org/clojure/spec.alpha/0.2.194/spec.alpha-0.2.194.pom from central
+#18 58.08 Retrieving org/clojure/pom.contrib/0.3.0/pom.contrib-0.3.0.pom from central
+#18 58.22 Retrieving org/clojure/core.specs.alpha/0.2.56/core.specs.alpha-0.2.56.pom from central
+#18 58.43 Retrieving com/taoensso/timbre/4.10.0/timbre-4.10.0.pom from clojars
+#18 58.64 Retrieving com/taoensso/encore/2.91.0/encore-2.91.0.pom from clojars
+#18 58.79 Retrieving org/clojure/tools.reader/0.10.0/tools.reader-0.10.0.pom from central
+#18 59.00 Retrieving com/taoensso/truss/1.5.0/truss-1.5.0.pom from clojars
+#18 59.21 Retrieving io/aviso/pretty/0.1.33/pretty-0.1.33.pom from clojars
+#18 59.35 Retrieving org/clojure/clojure/1.5.0/clojure-1.5.0.pom from central
+#18 59.49 Retrieving org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.pom from central
+#18 59.63 Retrieving org/slf4j/slf4j-parent/1.7.30/slf4j-parent-1.7.30.pom from central
+#18 59.81 Retrieving org/slf4j/log4j-over-slf4j/2.0.3/log4j-over-slf4j-2.0.3.pom from central
+#18 59.96 Retrieving org/slf4j/slf4j-parent/2.0.3/slf4j-parent-2.0.3.pom from central
+#18 60.10 Retrieving org/slf4j/slf4j-api/2.0.3/slf4j-api-2.0.3.pom from central
+#18 60.27 Retrieving org/slf4j/jul-to-slf4j/2.0.3/jul-to-slf4j-2.0.3.pom from central
+#18 60.41 Retrieving org/slf4j/jcl-over-slf4j/2.0.3/jcl-over-slf4j-2.0.3.pom from central
+#18 60.77 Retrieving com/fasterxml/jackson/core/jackson-core/2.13.3/jackson-core-2.13.3.jar from central
+#18 60.77 Retrieving com/fasterxml/jackson/dataformat/jackson-dataformat-cbor/2.13.3/jackson-dataformat-cbor-2.13.3.jar from central
+#18 60.83 Retrieving com/cemerick/pomegranate/1.1.0/pomegranate-1.1.0.jar from central
+#18 60.83 Retrieving com/fasterxml/jackson/dataformat/jackson-dataformat-smile/2.13.3/jackson-dataformat-smile-2.13.3.jar from central
+#18 60.90 Retrieving org/apache/maven/maven-resolver-provider/3.5.3/maven-resolver-provider-3.5.3.jar from central
+#18 61.03 Retrieving org/apache/maven/maven-model/3.5.3/maven-model-3.5.3.jar from central
+#18 61.11 Retrieving org/apache/maven/maven-model-builder/3.5.3/maven-model-builder-3.5.3.jar from central
+#18 61.20 Retrieving org/codehaus/plexus/plexus-interpolation/1.24/plexus-interpolation-1.24.jar from central
+#18 61.23 Retrieving org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar from central
+#18 61.37 Retrieving org/apache/maven/maven-artifact/3.5.3/maven-artifact-3.5.3.jar from central
+#18 61.39 Retrieving org/apache/maven/maven-builder-support/3.5.3/maven-builder-support-3.5.3.jar from central
+#18 61.41 Retrieving com/google/guava/guava/20.0/guava-20.0.jar from central
+#18 61.43 Retrieving org/apache/maven/maven-repository-metadata/3.5.3/maven-repository-metadata-3.5.3.jar from central
+#18 61.45 Retrieving org/apache/maven/resolver/maven-resolver-api/1.1.1/maven-resolver-api-1.1.1.jar from central
+#18 61.56 Retrieving org/apache/maven/resolver/maven-resolver-spi/1.1.1/maven-resolver-spi-1.1.1.jar from central
+#18 61.58 Retrieving org/apache/maven/resolver/maven-resolver-util/1.1.1/maven-resolver-util-1.1.1.jar from central
+#18 61.64 Retrieving org/apache/maven/resolver/maven-resolver-impl/1.1.1/maven-resolver-impl-1.1.1.jar from central
+#18 61.74 Retrieving javax/inject/javax.inject/1/javax.inject-1.jar from central
+#18 61.78 Retrieving org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar from central
+#18 61.96 Retrieving org/apache/maven/resolver/maven-resolver-transport-file/1.0.3/maven-resolver-transport-file-1.0.3.jar from central
+#18 62.11 Retrieving org/apache/maven/resolver/maven-resolver-transport-http/1.0.3/maven-resolver-transport-http-1.0.3.jar from central
+#18 62.13 Retrieving org/apache/maven/resolver/maven-resolver-transport-wagon/1.0.3/maven-resolver-transport-wagon-1.0.3.jar from central
+#18 62.27 Retrieving org/apache/maven/resolver/maven-resolver-connector-basic/1.0.3/maven-resolver-connector-basic-1.0.3.jar from central
+#18 62.27 Retrieving org/tcrawley/dynapath/1.0.0/dynapath-1.0.0.jar from central
+#18 62.32 Retrieving org/apache/maven/wagon/wagon-provider-api/3.0.0/wagon-provider-api-3.0.0.jar from central
+#18 62.45 Retrieving org/apache/maven/wagon/wagon-http/3.0.0/wagon-http-3.0.0.jar from central
+#18 62.50 Retrieving org/apache/maven/wagon/wagon-http-shared/3.0.0/wagon-http-shared-3.0.0.jar from central
+#18 62.57 Retrieving org/jsoup/jsoup/1.7.2/jsoup-1.7.2.jar from central
+#18 62.60 Retrieving commons-io/commons-io/2.5/commons-io-2.5.jar from central
+#18 62.75 Retrieving org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar from central
+#18 62.80 Retrieving org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar from central
+#18 63.01 Retrieving commons-logging/commons-logging/1.2/commons-logging-1.2.jar from central
+#18 63.29 Retrieving commons-codec/commons-codec/1.9/commons-codec-1.9.jar from central
+#18 63.62 Retrieving org/clojure/tools.reader/1.3.6/tools.reader-1.3.6.jar from central
+#18 64.00 Retrieving org/yaml/snakeyaml/1.25/snakeyaml-1.25.jar from central
+#18 64.23 Retrieving org/clojure/math.combinatorics/0.1.4/math.combinatorics-0.1.4.jar from central
+#18 64.30 Retrieving net/mikera/vectorz/0.62.0/vectorz-0.62.0.jar from central
+#18 64.40 Retrieving us/bpsm/edn-java/0.4.6/edn-java-0.4.6.jar from central
+#18 64.41 Retrieving net/mikera/randomz/0.3.0/randomz-0.3.0.jar from central
+#18 64.61 Retrieving net/mikera/mathz/0.3.0/mathz-0.3.0.jar from central
+#18 64.80 Retrieving org/clojure/tools.macro/0.1.5/tools.macro-0.1.5.jar from central
+#18 64.85 Retrieving net/sourceforge/parallelcolt/parallelcolt/0.10.1/parallelcolt-0.10.1.jar from central
+#18 64.94 Retrieving net/sourceforge/jplasma/jplasma/1.2.0/jplasma-1.2.0.jar from central
+#18 65.16 Retrieving net/sourceforge/jplasma/core-lapack/0.1/core-lapack-0.1.jar from central
+#18 65.19 Retrieving net/sourceforge/f2j/arpack_combined_all/0.1/arpack_combined_all-0.1.jar from central
+#18 65.19 Retrieving net/sourceforge/jtransforms/jtransforms/2.4.0/jtransforms-2.4.0.jar from central
+#18 65.58 Retrieving junit/junit/4.8.2/junit-4.8.2.jar from central
+#18 65.92 Retrieving net/sourceforge/csparsej/csparsej/1.1.1/csparsej-1.1.1.jar from central
+#18 66.59 Retrieving net/sourceforge/parallelcolt/optimization/1.0/optimization-1.0.jar from central
+#18 66.63 Retrieving com/googlecode/netlib-java/netlib-java/0.9.3/netlib-java-0.9.3.jar from central
+#18 66.73 Retrieving com/github/rwl/JKLU/1.0.0/JKLU-1.0.0.jar from central
+#18 66.81 Retrieving com/github/rwl/BTFJ/1.0.1/BTFJ-1.0.1.jar from central
+#18 66.88 Retrieving com/github/rwl/AMDJ/1.0.1/AMDJ-1.0.1.jar from central
+#18 66.94 Retrieving com/github/rwl/COLAMDJ/1.0.1/COLAMDJ-1.0.1.jar from central
+#18 67.02 Retrieving net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar from central
+#18 67.08 Retrieving org/clojure/data.csv/0.1.4/data.csv-0.1.4.jar from central
+#18 67.17 Retrieving org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar from central
+#18 67.18 Retrieving org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar from central
+#18 67.22 Retrieving joda-time/joda-time/2.9.7/joda-time-2.9.7.jar from central
+#18 67.41 Retrieving org/mongodb/mongo-java-driver/2.14.0/mongo-java-driver-2.14.0.jar from central
+#18 68.04 Retrieving com/lowagie/itext/2.1.7/itext-2.1.7.jar from central
+#18 69.71 Retrieving org/bouncycastle/bctsp-jdk14/1.46/bctsp-jdk14-1.46.jar from central
+#18 69.91 Retrieving org/bouncycastle/bcprov-jdk14/1.46/bcprov-jdk14-1.46.jar from central
+#18 69.94 Retrieving org/bouncycastle/bcmail-jdk14/1.46/bcmail-jdk14-1.46.jar from central
+#18 70.21 Retrieving org/apache/xmlgraphics/batik-dom/1.9.1/batik-dom-1.9.1.jar from central
+#18 71.06 Retrieving org/apache/xmlgraphics/batik-css/1.9.1/batik-css-1.9.1.jar from central
+#18 71.13 Retrieving org/apache/xmlgraphics/batik-ext/1.9.1/batik-ext-1.9.1.jar from central
+#18 71.37 Retrieving xalan/xalan/2.7.2/xalan-2.7.2.jar from central
+#18 71.43 Retrieving xalan/serializer/2.7.2/serializer-2.7.2.jar from central
+#18 72.04 Retrieving xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar from central
+#18 72.68 Retrieving xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar from central
+#18 72.97 Retrieving org/apache/xmlgraphics/batik-svggen/1.9.1/batik-svggen-1.9.1.jar from central
+#18 73.73 Retrieving org/apache/xmlgraphics/batik-awt-util/1.9.1/batik-awt-util-1.9.1.jar from central
+#18 73.75 Retrieving org/apache/xmlgraphics/xmlgraphics-commons/2.2/xmlgraphics-commons-2.2.jar from central
+#18 74.09 Retrieving org/apache/xmlgraphics/batik-util/1.9.1/batik-util-1.9.1.jar from central
+#18 74.43 Retrieving org/apache/xmlgraphics/batik-constants/1.9.1/batik-constants-1.9.1.jar from central
+#18 74.62 Retrieving org/apache/xmlgraphics/batik-i18n/1.9.1/batik-i18n-1.9.1.jar from central
+#18 74.86 Retrieving org/apache/xmlgraphics/batik-xml/1.9.1/batik-xml-1.9.1.jar from central
+#18 75.26 Retrieving org/scilab/forge/jlatexmath/1.0.6/jlatexmath-1.0.6.jar from central
+#18 75.27 Retrieving org/scilab/forge/jlatexmath-font-greek/1.0.6/jlatexmath-font-greek-1.0.6.jar from central
+#18 75.36 Retrieving org/scilab/forge/jlatexmath-font-cyrillic/1.0.6/jlatexmath-font-cyrillic-1.0.6.jar from central
+#18 75.45 Retrieving org/apache/poi/poi-ooxml/3.16/poi-ooxml-3.16.jar from central
+#18 76.65 Retrieving org/apache/poi/poi/3.16/poi-3.16.jar from central
+#18 76.86 Retrieving org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar from central
+#18 79.08 Retrieving org/apache/poi/poi-ooxml-schemas/3.16/poi-ooxml-schemas-3.16.jar from central
+#18 79.58 Retrieving org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar from central
+#18 80.31 Retrieving stax/stax-api/1.0.1/stax-api-1.0.1.jar from central
+#18 80.56 Retrieving com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar from central
+#18 81.17 Retrieving org/clojure/core.incubator/0.1.4/core.incubator-0.1.4.jar from central
+#18 81.32 Retrieving org/clojure/tools.nrepl/0.2.12/tools.nrepl-0.2.12.jar from central
+#18 81.73 Retrieving mysql/mysql-connector-java/5.1.17/mysql-connector-java-5.1.17.jar from central
+#18 82.55 Retrieving postgresql/postgresql/8.4-702.jdbc4/postgresql-8.4-702.jdbc4.jar from central
+#18 82.85 Retrieving org/apache/derby/derby/10.1.1.0/derby-10.1.1.0.jar from central
+#18 84.89 Retrieving io/dropwizard/metrics/metrics-core/4.1.0/metrics-core-4.1.0.jar from central
+#18 85.10 Retrieving io/dropwizard/metrics/metrics-jmx/4.1.0/metrics-jmx-4.1.0.jar from central
+#18 85.24 Retrieving io/opentracing/opentracing-api/0.33.0/opentracing-api-0.33.0.jar from central
+#18 85.26 Retrieving io/opentracing/opentracing-util/0.33.0/opentracing-util-0.33.0.jar from central
+#18 85.28 Retrieving io/opentracing/opentracing-noop/0.33.0/opentracing-noop-0.33.0.jar from central
+#18 85.40 Retrieving org/clojure/core.match/0.3.0/core.match-0.3.0.jar from central
+#18 85.42 Retrieving org/clojure/tools.analyzer.jvm/0.7.2/tools.analyzer.jvm-0.7.2.jar from central
+#18 85.43 Retrieving org/clojure/core.cache/0.6.5/core.cache-0.6.5.jar from central
+#18 85.43 Retrieving org/clojure/core.memoize/0.5.9/core.memoize-0.5.9.jar from central
+#18 85.56 Retrieving org/clojure/data.priority-map/0.0.7/data.priority-map-0.0.7.jar from central
+#18 85.59 Retrieving org/ow2/asm/asm-all/4.2/asm-all-4.2.jar from central
+#18 85.68 Retrieving org/clojure/algo.generic/0.1.3/algo.generic-0.1.3.jar from central
+#18 85.72 Retrieving org/apache/commons/commons-compress/1.8/commons-compress-1.8.jar from central
+#18 85.76 Retrieving org/tukaani/xz/1.5/xz-1.5.jar from central
+#18 86.05 Retrieving org/clojure/data.codec/0.1.1/data.codec-0.1.1.jar from central
+#18 86.07 Retrieving org/clojure/data.json/2.4.0/data.json-2.4.0.jar from central
+#18 86.09 Retrieving org/clojure/clojure/1.11.1/clojure-1.11.1.jar from central
+#18 86.21 Retrieving org/clojure/java.jdbc/0.7.12/java.jdbc-0.7.12.jar from central
+#18 86.23 Retrieving org/clojure/test.check/1.1.1/test.check-1.1.1.jar from central
+#18 86.44 Retrieving org/clojure/tools.cli/1.0.206/tools.cli-1.0.206.jar from central
+#18 86.47 Retrieving org/xerial/sqlite-jdbc/3.39.3.0/sqlite-jdbc-3.39.3.0.jar from central
+#18 86.66 Retrieving org/zeromq/jeromq/0.5.2/jeromq-0.5.2.jar from central
+#18 87.83 Retrieving eu/neilalexander/jnacl/1.0.0/jnacl-1.0.0.jar from central
+#18 88.73 Retrieving org/clojure/tools.analyzer/1.1.0/tools.analyzer-1.1.0.jar from central
+#18 89.88 Retrieving org/clojure/core.async/1.5.648/core.async-1.5.648.jar from central
+#18 90.00 Retrieving org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar from central
+#18 90.06 Retrieving org/slf4j/log4j-over-slf4j/2.0.3/log4j-over-slf4j-2.0.3.jar from central
+#18 90.22 Retrieving org/slf4j/jul-to-slf4j/2.0.3/jul-to-slf4j-2.0.3.jar from central
+#18 90.36 Retrieving org/slf4j/jcl-over-slf4j/2.0.3/jcl-over-slf4j-2.0.3.jar from central
+#18 104.4 Retrieving cheshire/cheshire/5.11.0/cheshire-5.11.0.jar from clojars
+#18 104.6 Retrieving com/taoensso/timbre/5.2.1/timbre-5.2.1.jar from clojars
+#18 104.8 Retrieving tigris/tigris/0.1.2/tigris-0.1.2.jar from clojars
+#18 104.8 Retrieving com/grammarly/omniconf/0.4.3/omniconf-0.4.3.jar from clojars
+#18 104.8 Retrieving clojure/java-time/clojure.java-time/1.1.0/clojure.java-time-1.1.0.jar from clojars
+#18 104.8 Retrieving cider/cider-nrepl/0.26.0/cider-nrepl-0.26.0.jar from clojars
+#18 104.8 Retrieving com/taoensso/encore/3.21.0/encore-3.21.0.jar from clojars
+#18 104.9 Retrieving com/taoensso/truss/1.6.0/truss-1.6.0.jar from clojars
+#18 104.9 Retrieving io/aviso/pretty/1.1.1/pretty-1.1.1.jar from clojars
+#18 105.1 Retrieving hiccup/hiccup/2.0.0-alpha2/hiccup-2.0.0-alpha2.jar from clojars
+#18 105.1 Retrieving io/forward/yaml/1.0.11/yaml-1.0.11.jar from clojars
+#18 105.1 Retrieving org/flatland/ordered/1.15.10/ordered-1.15.10.jar from clojars
+#18 105.1 Retrieving incanter/incanter/1.9.3/incanter-1.9.3.jar from clojars
+#18 105.2 Retrieving incanter/incanter-core/1.9.3/incanter-core-1.9.3.jar from clojars
+#18 105.5 Retrieving net/mikera/clojure-utils/0.7.0/clojure-utils-0.7.0.jar from clojars
+#18 105.7 Retrieving net/mikera/vectorz-clj/0.44.1/vectorz-clj-0.44.1.jar from clojars
+#18 105.7 Retrieving incanter/incanter-io/1.9.3/incanter-io-1.9.3.jar from clojars
+#18 105.8 Retrieving net/mikera/core.matrix/0.52.0/core.matrix-0.52.0.jar from clojars
+#18 105.9 Retrieving org/danlarkin/clojure-json/1.1/clojure-json-1.1.jar from clojars
+#18 106.1 Retrieving incanter/incanter-charts/1.9.3/incanter-charts-1.9.3.jar from clojars
+#18 106.5 Retrieving clj-time/clj-time/0.14.0/clj-time-0.14.0.jar from clojars
+#18 107.2 Retrieving incanter/incanter-mongodb/1.9.3/incanter-mongodb-1.9.3.jar from clojars
+#18 107.2 Retrieving congomongo/congomongo/0.5.0/congomongo-0.5.0.jar from clojars
+#18 107.4 Retrieving incanter/incanter-pdf/1.9.3/incanter-pdf-1.9.3.jar from clojars
+#18 107.4 Retrieving incanter/incanter-svg/1.9.3/incanter-svg-1.9.3.jar from clojars
+#18 107.5 Retrieving incanter/incanter-latex/1.9.3/incanter-latex-1.9.3.jar from clojars
+#18 107.5 Retrieving incanter/incanter-excel/1.9.3/incanter-excel-1.9.3.jar from clojars
+#18 107.6 Retrieving incanter/incanter-sql/1.9.3/incanter-sql-1.9.3.jar from clojars
+#18 107.6 Retrieving clojureql/clojureql/1.0.5/clojureql-1.0.5.jar from clojars
+#18 107.7 Retrieving incanter/incanter-zoo/1.9.3/incanter-zoo-1.9.3.jar from clojars
+#18 107.7 Retrieving swingrepl/swingrepl/1.3.0/swingrepl-1.3.0.jar from clojars
+#18 107.7 Retrieving io/pedestal/pedestal.interceptor/0.5.10/pedestal.interceptor-0.5.10.jar from clojars
+#18 107.8 Retrieving io/pedestal/pedestal.log/0.5.10/pedestal.log-0.5.10.jar from clojars
+#18 107.9 Retrieving io/simplect/compose/0.7.27/compose-0.7.27.jar from clojars
+#18 108.0 Retrieving funcool/cats/2.3.2/cats-2.3.2.jar from clojars
+#18 108.0 Retrieving me/raynes/fs/1.4.6/fs-1.4.6.jar from clojars
+#18 108.1 Retrieving net/cgrand/parsley/0.9.3/parsley-0.9.3.jar from clojars
+#18 108.1 Retrieving net/cgrand/regex/1.1.0/regex-1.1.0.jar from clojars
+#18 108.2 Retrieving net/cgrand/sjacket/0.1.1/sjacket-0.1.1.jar from clojars
+#18 108.2 Retrieving nrepl/nrepl/1.0.0/nrepl-1.0.0.jar from clojars
+#18 108.3 Retrieving pandect/pandect/1.0.2/pandect-1.0.2.jar from clojars
+#18 108.3 Retrieving slingshot/slingshot/0.12.2/slingshot-0.12.2.jar from clojars
+#18 108.3 Retrieving zprint/zprint/1.2.4/zprint-1.2.4.jar from clojars
+#18 108.4 Retrieving org/babashka/sci/0.3.4/sci-0.3.4.jar from clojars
+#18 108.5 Retrieving borkdude/sci.impl.reflector/0.0.1/sci.impl.reflector-0.0.1.jar from clojars
+#18 108.7 Retrieving borkdude/edamame/0.0.19/edamame-0.0.19.jar from clojars
+#18 108.7 Retrieving rewrite-clj/rewrite-clj/1.1.45/rewrite-clj-1.1.45.jar from clojars
+#18 108.9 Retrieving com/fzakaria/slf4j-timbre/0.3.21/slf4j-timbre-0.3.21.jar from clojars
+#18 110.7 Compiling clojupyter
+#18 114.6 WARNING: parse-boolean already refers to: #'clojure.core/parse-boolean in namespace: omniconf.core, being replaced by: #'omniconf.core/parse-boolean
+#18 123.1 Compiling clojupyter.cmdline
+#18 123.8 Compiling clojupyter.cmdline.api
+#18 123.8 Compiling clojupyter.display
+#18 123.8 Compiling clojupyter.install.conda.build
+#18 123.8 Compiling clojupyter.install.conda.build-actions
+#18 123.8 Compiling clojupyter.install.conda.conda-specs
+#18 123.8 Compiling clojupyter.install.conda.env
+#18 123.9 Compiling clojupyter.install.conda.link
+#18 123.9 Compiling clojupyter.install.conda.link-actions
+#18 123.9 Compiling clojupyter.install.conda.unlink
+#18 123.9 Compiling clojupyter.install.conda.unlink-actions
+#18 123.9 Compiling clojupyter.install.conda.yaml
+#18 123.9 Compiling clojupyter.install.filemap
+#18 123.9 Compiling clojupyter.install.local
+#18 123.9 Compiling clojupyter.install.local-actions
+#18 123.9 Compiling clojupyter.install.local-specs
+#18 123.9 Compiling clojupyter.install.log
+#18 123.9 Compiling clojupyter.javascript.alpha
+#18 124.0 Compiling clojupyter.jupmsg-specs
+#18 124.0 Compiling clojupyter.kernel.cljsrv
+#18 124.7 Compiling clojupyter.kernel.comm-atom
+#18 124.8 Compiling clojupyter.kernel.comm-global-state
+#18 124.8 Compiling clojupyter.kernel.config
+#18 124.8 Compiling clojupyter.kernel.core
+#18 126.0 Compiling clojupyter.kernel.handle-event
+#18 126.0 Compiling clojupyter.kernel.handle-event-process
+#18 126.0 Compiling clojupyter.kernel.handle-event.comm-msg
+#18 126.0 Compiling clojupyter.kernel.handle-event.complete
+#18 126.0 Compiling clojupyter.kernel.handle-event.execute
+#18 126.0 Compiling clojupyter.kernel.handle-event.history
+#18 126.0 Compiling clojupyter.kernel.handle-event.inspect
+#18 126.0 Compiling clojupyter.kernel.handle-event.interrupt
+#18 126.0 Compiling clojupyter.kernel.handle-event.kernel-info
+#18 126.0 Compiling clojupyter.kernel.handle-event.ops
+#18 126.0 Compiling clojupyter.kernel.handle-event.shutdown
+#18 126.0 Compiling clojupyter.kernel.history
+#18 126.0 Compiling clojupyter.kernel.init
+#18 126.0 Compiling clojupyter.kernel.jup-channels
+#18 126.0 Compiling clojupyter.kernel.logo
+#18 126.0 Compiling clojupyter.kernel.nrepl-middleware
+#18 126.0 Compiling clojupyter.kernel.os
+#18 126.0 Compiling clojupyter.kernel.stacktrace
+#18 126.1 Compiling clojupyter.kernel.version
+#18 126.1 Compiling clojupyter.log
+#18 126.1 Compiling clojupyter.messages
+#18 126.1 Compiling clojupyter.messages-specs
+#18 126.1 Compiling clojupyter.misc.display
+#18 126.1 Compiling clojupyter.misc.helper
+#18 126.3 Compiling clojupyter.misc.mime-convertible
+#18 126.3 Compiling clojupyter.plan
+#18 126.3 Compiling clojupyter.protocol.mime-convertible
+#18 126.3 Compiling clojupyter.shutdown
+#18 126.3 Compiling clojupyter.specs
+#18 126.3 Compiling clojupyter.state
+#18 126.3 Compiling clojupyter.util
+#18 126.3 Compiling clojupyter.util-actions
+#18 126.3 Compiling clojupyter.zmq
+#18 126.3 Compiling clojupyter.zmq-specs
+#18 126.3 Compiling clojupyter.zmq-util
+#18 126.3 Compiling clojupyter.zmq.heartbeat-process
+#18 128.9 Created /home/clojure/clojupyter/target/clojupyter-0.3.6.jar
+#18 145.0 Created /home/clojure/clojupyter/target/clojupyter-0.3.6-standalone.jar
+#18 145.0 lein clojupyter install
+#18 148.1 Retrieving org/nrepl/incomplete/0.1.0/incomplete-0.1.0.pom from clojars
+#18 148.3 Retrieving midje/midje/1.9.6/midje-1.9.6.pom from clojars
+#18 148.5 Retrieving marick/suchwow/6.0.2/suchwow-6.0.2.pom from clojars
+#18 148.7 Retrieving potemkin/potemkin/0.4.4/potemkin-0.4.4.pom from clojars
+#18 148.9 Retrieving clj-tuple/clj-tuple/0.2.2/clj-tuple-0.2.2.pom from clojars
+#18 149.2 Retrieving riddley/riddley/0.1.12/riddley-0.1.12.pom from clojars
+#18 149.4 Retrieving com/rpl/specter/1.0.5/specter-1.0.5.pom from clojars
+#18 149.6 Retrieving environ/environ/1.1.0/environ-1.1.0.pom from clojars
+#18 149.7 Retrieving commons-codec/commons-codec/1.11/commons-codec-1.11.pom from central
+#18 149.9 Retrieving org/apache/commons/commons-parent/42/commons-parent-42.pom from central
+#18 150.2 Retrieving io/aviso/pretty/0.1.35/pretty-0.1.35.pom from clojars
+#18 150.3 Retrieving org/clojure/core.unify/0.5.7/core.unify-0.5.7.pom from central
+#18 150.5 Retrieving org/clojure/test.check/0.10.0-alpha3/test.check-0.10.0-alpha3.pom from central
+#18 150.7 Retrieving clj-time/clj-time/0.14.4/clj-time-0.14.4.pom from clojars
+#18 150.8 Retrieving joda-time/joda-time/2.9.9/joda-time-2.9.9.pom from central
+#18 151.1 Retrieving colorize/colorize/0.1.1/colorize-0.1.1.pom from clojars
+#18 151.2 Retrieving org/clojure/tools.namespace/0.3.0-alpha4/tools.namespace-0.3.0-alpha4.pom from central
+#18 151.3 Retrieving org/clojure/java.classpath/0.2.3/java.classpath-0.2.3.pom from central
+#18 151.5 Retrieving flare/flare/0.2.9/flare-0.2.9.pom from clojars
+#18 151.7 Retrieving org/clojars/brenton/google-diff-match-patch/0.1/google-diff-match-patch-0.1.pom from clojars
+#18 152.0 Retrieving mvxcvi/puget/1.1.0/puget-1.1.0.pom from clojars
+#18 152.2 Retrieving mvxcvi/arrangement/1.1.1/arrangement-1.1.1.pom from clojars
+#18 152.4 Retrieving fipp/fipp/0.6.14/fipp-0.6.14.pom from clojars
+#18 152.5 Retrieving org/clojure/core.rrb-vector/0.0.13/core.rrb-vector-0.0.13.pom from central
+#18 152.9 Retrieving org/clojure/core.unify/0.5.7/core.unify-0.5.7.jar from central
+#18 152.9 Retrieving joda-time/joda-time/2.9.9/joda-time-2.9.9.jar from central
+#18 153.0 Retrieving org/clojure/tools.namespace/0.3.0-alpha4/tools.namespace-0.3.0-alpha4.jar from central
+#18 153.0 Retrieving org/clojure/java.classpath/0.2.3/java.classpath-0.2.3.jar from central
+#18 153.2 Retrieving org/clojure/core.rrb-vector/0.0.13/core.rrb-vector-0.0.13.jar from central
+#18 153.6 Retrieving org/nrepl/incomplete/0.1.0/incomplete-0.1.0.jar from clojars
+#18 153.7 Retrieving marick/suchwow/6.0.2/suchwow-6.0.2.jar from clojars
+#18 153.7 Retrieving clj-tuple/clj-tuple/0.2.2/clj-tuple-0.2.2.jar from clojars
+#18 153.7 Retrieving midje/midje/1.9.6/midje-1.9.6.jar from clojars
+#18 153.7 Retrieving potemkin/potemkin/0.4.4/potemkin-0.4.4.jar from clojars
+#18 153.8 Retrieving riddley/riddley/0.1.12/riddley-0.1.12.jar from clojars
+#18 153.9 Retrieving com/rpl/specter/1.0.5/specter-1.0.5.jar from clojars
+#18 153.9 Retrieving environ/environ/1.1.0/environ-1.1.0.jar from clojars
+#18 153.9 Retrieving clj-time/clj-time/0.14.4/clj-time-0.14.4.jar from clojars
+#18 153.9 Retrieving colorize/colorize/0.1.1/colorize-0.1.1.jar from clojars
+#18 154.0 Retrieving flare/flare/0.2.9/flare-0.2.9.jar from clojars
+#18 154.0 Retrieving org/clojars/brenton/google-diff-match-patch/0.1/google-diff-match-patch-0.1.jar from clojars
+#18 154.1 Retrieving mvxcvi/arrangement/1.1.1/arrangement-1.1.1.jar from clojars
+#18 154.1 Retrieving mvxcvi/puget/1.1.0/puget-1.1.0.jar from clojars
+#18 154.1 Retrieving fipp/fipp/0.6.14/fipp-0.6.14.jar from clojars
+#18 155.2 WARNING: parse-boolean already refers to: #'clojure.core/parse-boolean in namespace: omniconf.core, being replaced by: #'omniconf.core/parse-boolean
+#18 156.9 Clojupyter v0.3.6 - Install local
+#18 156.9 
+#18 156.9     Installed jar:	~/clojupyter/target/clojupyter-0.3.6-standalone.jar
+#18 156.9     Install directory:	~/.local/share/jupyter/kernels/clojupyter-0.3.6
+#18 156.9     Kernel identifier:	clojupyter-0.3.6
+#18 156.9     
+#18 156.9     Installation successful.
+#18 156.9 
+#18 156.9 exit(0)
+#18 DONE 157.3s
+
+#19 [15/15] WORKDIR /home/clojure/notebooks
+#19 sha256:f724f79ab5fd141729d278bc3cd0a4a0c19f8948815e74a15e0fb56fd589377c
+#19 DONE 0.0s
+
+#20 exporting to image
+#20 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#20 exporting layers
+#20 exporting layers 5.0s done
+#20 writing image sha256:5393b051e742dd884daf92afd804c3fe31bfc1fdd4111f9dc0524564a58251da done
+#20 naming to docker.io/library/clojupyter1 done
+#20 DONE 5.0s
