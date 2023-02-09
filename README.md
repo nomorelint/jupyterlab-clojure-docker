@@ -1,8 +1,7 @@
 # clojupyter 0.3.6 docker image
 
-This is a non official `Dockerfile` for [clojupyter](https://github.com/clojupyter/clojupyter)
+This is an unofficial `Dockerfile` for running the latest [clojupyter](https://github.com/clojupyter/clojupyter) 0.3.6
 to build a docker image to combine the power of Jupyter notebook and Clojure.
-
 
 ## Usage
 
