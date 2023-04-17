@@ -37,7 +37,7 @@ After the build, use `docker run` to run the image.
 If you want to use notebooks from your host machine you'll need to mount a folder to the notebook volume as follows:
 
 ```sh
-docker run -d \
+docker run \
     -p 8888:8888 \
     -v /path/to/local/notebooks/:/home/clojure/notebooks \
     nomorelint/jupyterlab-clojure-docker

@@ -18,9 +18,9 @@
   :aliases                      {"clojupyter"                   ["run" "-m" "clojupyter.cmdline"]
                                  "update-version-edn"           ["v" "cache" "resources/clojupyter/assets" "edn"]}
   
-  :dependencies [[cheshire/cheshire			"5.11.0"]
+  :dependencies [[cheshire/cheshire	"5.11.0"]
                  [cider/cider-nrepl "0.26.0"]
-                 [clojure.java-time/clojure.java-time	"1.1.0"]
+                 [clojure.java-time/clojure.java-time "1.1.0"]
                  [com.cemerick/pomegranate	"1.1.0"]
                  [com.grammarly/omniconf "0.4.3"]
                  [com.taoensso/timbre "5.2.1"]
